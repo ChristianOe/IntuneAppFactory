@@ -13,13 +13,13 @@
     Author:      Nickolaj Andersen
     Contact:     @NickolajA
     Created:     2022-04-20
-    Updated:     2024-03-04
+    Updated:     2024-11-01
 
     Version history:
     1.0.0 - (2020-09-26) Script created
     1.0.1 - (2023-05-29) Fixed bugs mention in release notes for Intune App Factory 1.0.1
     1.0.2 - (2024-03-04) Added support for ScopeTagName parameter, added Assignment handling
-    1.0.3 - (2024-11-01) Added support for CompanyPortalFeaturedApp parameter, CategoryName parameter and MaximumInstallationTimeInMinutes parameter
+    1.0.3 - (2024-11-01) Added support for the parameter CompanyPortalFeaturedApp, CategoryName, Developer, InformationURL, PrivacyURL and MaximumInstallationTimeInMinutes
 #>
 [CmdletBinding(SupportsShouldProcess = $true)]
 param (
