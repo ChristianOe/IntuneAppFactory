@@ -27,7 +27,7 @@
         "InstallExperience": "system",
         "DeviceRestartBehavior": "suppress",
         "MaximumInstallationTimeInMinutes": "60",
-        "AllowAvailableUninstall": "true",
+        "AllowAvailableUninstall": "true"
     },
     "RequirementRule": {
         "MinimumSupportedWindowsRelease": "W10_22H2",
