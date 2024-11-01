@@ -26,7 +26,8 @@
         "UninstallCommand": "Deploy-Application.exe Uninstall",
         "InstallExperience": "system",
         "DeviceRestartBehavior": "suppress",
-        "MaximumInstallationTimeInMinutes": "60"
+        "MaximumInstallationTimeInMinutes": "60",
+        "AllowAvailableUninstall": "true"
     },
     "RequirementRule": {
         "MinimumSupportedWindowsRelease": "W10_22H2",
