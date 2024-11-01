@@ -19,6 +19,7 @@
     1.0.0 - (2020-09-26) Script created
     1.0.1 - (2023-05-29) Fixed bugs mention in release notes for Intune App Factory 1.0.1
     1.0.2 - (2024-03-04) Added support for ScopeTagName parameter, added Assignment handling
+    1.0.3 - (2024-11-01) Added support for CompanyPortalFeaturedApp parameter, CategoryName parameter and MaximumInstallationTimeInMinutes parameter
 #>
 [CmdletBinding(SupportsShouldProcess = $true)]
 param (
@@ -591,15 +592,33 @@ Process {
             if (-not([string]::IsNullOrEmpty($AppData.Information.Owner))) {
                 $Win32AppArgs.Add("Owner", $AppData.Information.Owner)
             }
+            if (-not([string]::IsNullOrEmpty($AppData.Information.Developer))) {
+                $Win32AppArgs.Add("Developer", $AppData.Information.Developer)
+            }
             if (-not([string]::IsNullOrEmpty($AppData.Information.Notes))) {
                 $Win32AppArgs.Add("Notes", $AppData.Information.Notes)
             }
+            if (-not([string]::IsNullOrEmpty($AppData.Information.InformationURL))) {
+                $Win32AppArgs.Add("InformationURL", $AppData.Information.InformationURL)
+            }
+            if (-not([string]::IsNullOrEmpty($AppData.Information.PrivacyURL))) {
+                $Win32AppArgs.Add("PrivacyURL", $AppData.Information.PrivacyURL)
+            }
+            if (-not([string]::IsNullOrEmpty($AppData.Information.CompanyPortalFeaturedApp))) {
+                $Win32AppArgs.Add("CompanyPortalFeaturedApp", [System.Convert]::ToBoolean($AppData.Information.CompanyPortalFeaturedApp))
+            }
+            if (-not([string]::IsNullOrEmpty($AppData.Information.CategoryName))) {
+                $Win32AppArgs.Add("CategoryName", $AppData.Information.CategoryName)
+            } 
             if (-not([string]::IsNullOrEmpty($AppData.Program.InstallCommand))) {
                 $Win32AppArgs.Add("InstallCommandLine", $AppData.Program.InstallCommand)
             }
             if (-not([string]::IsNullOrEmpty($AppData.Program.UninstallCommand))) {
                 $Win32AppArgs.Add("UninstallCommandLine", $AppData.Program.UninstallCommand)
             }
+            if (-not([string]::IsNullOrEmpty($AppData.Program.MaximumInstallationTimeInMinutes))) {
+                $Win32AppArgs.Add("MaximumInstallationTimeInMinutes", $AppData.Program.MaximumInstallationTimeInMinutes)
+            } 
             if (-not([string]::IsNullOrEmpty($AppData.Program.AllowAvailableUninstall))) {
                 if ($AppData.Program.AllowAvailableUninstall -eq $true) {
                     $Win32AppArgs.Add("AllowAvailableUninstall", $true)
