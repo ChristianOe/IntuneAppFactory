@@ -616,9 +616,9 @@ Process {
             if (-not([string]::IsNullOrEmpty($AppData.Program.UninstallCommand))) {
                 $Win32AppArgs.Add("UninstallCommandLine", $AppData.Program.UninstallCommand)
             }
-            if (-not([string]::IsNullOrEmpty($AppData.Program.MaximumInstallationTimeInMinutes))) {
-                $Win32AppArgs.Add("MaximumInstallationTimeInMinutes", $AppData.Program.MaximumInstallationTimeInMinutes)
-            } 
+            if ((-not([string]::IsNullOrEmpty($AppData.Program.MaximumInstallationTimeInMinutes))) -and ($AppData.Program.MaximumInstallationTimeInMinutes -match "^[\d\.]+$") -and ([int]$AppData.Program.MaximumInstallationTimeInMinutes -ge 1) -and ([int]$AppData.Program.MaximumInstallationTimeInMinutes -le 1440)){
+                $Win32AppArgs.Add("MaximumInstallationTimeInMinutes", [int]$AppData.Program.MaximumInstallationTimeInMinutes)
+            }
             if (-not([string]::IsNullOrEmpty($AppData.Program.AllowAvailableUninstall))) {
                 if ($AppData.Program.AllowAvailableUninstall -eq $true) {
                     $Win32AppArgs.Add("AllowAvailableUninstall", $true)
