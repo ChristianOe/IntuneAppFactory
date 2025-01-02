@@ -24,6 +24,7 @@
     1.0.5 - (2024-08-25) Added function to test and convert version strings with invalid characters to improve version comparison for detected applications in Intune.
                          Improved application detection logic using the new naming convention property specified in the appList.json file.
     1.0.6 - (2024-11-22) Added Nevergreen Appsource
+    1.0.7 - (2025-01-02) Added custom UserAgent to fix some download issues if "wget" is blocked by download provider.
 #>
 [CmdletBinding(SupportsShouldProcess = $true)]
 param (
@@ -523,6 +524,7 @@ Process {
                                     "AppSetupFileName" = $AppSetupFileName
                                     "AppSetupVersion" = $AppItem.Version
                                     "URI" = $AppItem.URI
+                                    "UserAgent" = $App.UserAgent
                                     "InstallerType" = $AppItem.InstallerType
                                     "FileExtension" = $AppItem.FileExtension
                                     "StorageAccountName" = if (-not([string]::IsNullOrEmpty($App.StorageAccountName))) { $App.StorageAccountName } else { [string]::Empty }
