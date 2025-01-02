@@ -124,7 +124,7 @@ Process {
                 $FilterList.Add("`$PSItem.Release -eq ""$($FilterOptions.Release)""") | Out-Null
             }
             if ($FilterOptions.ImageType) {
-                $FilterList.Add("`$PSItem.Release -eq ""$($FilterOptions.Release)""") | Out-Null
+                $FilterList.Add("`$PSItem.ImageType -eq ""$($FilterOptions.Release)""") | Out-Null
             }
 
             # Construct script block from filter list array
@@ -190,7 +190,7 @@ Process {
                 $FilterList.Add("`$PSItem.Release -eq ""$($FilterOptions.Release)""") | Out-Null
             }
             if ($FilterOptions.ImageType) {
-                $FilterList.Add("`$PSItem.Release -eq ""$($FilterOptions.ImageType)""") | Out-Null
+                $FilterList.Add("`$PSItem.ImageType -eq ""$($FilterOptions.ImageType)""") | Out-Null
             }
 
             # Construct script block from filter list array
